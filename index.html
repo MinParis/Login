@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema | Panel</title>
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app">
+
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo"><ion-icon name="school"></ion-icon> <span class="txt">Sistema</span></span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <button class="menu-item activo" data-target="vista-inicio">
+                    <ion-icon name="home"></ion-icon> <span class="txt">Inicio</span>
+                </button>
+
+                <button class="menu-item con-submenu" id="btn-usuarios">
+                    <ion-icon name="people"></ion-icon> <span class="txt">Usuarios</span>
+                    <ion-icon name="chevron-down" class="chevron"></ion-icon>
+                </button>
+                <div class="submenu" id="submenu-usuarios">
+                    <button class="submenu-item" data-target="vista-captura">
+                        <ion-icon name="person-add"></ion-icon> <span class="txt">Captura</span>
+                    </button>
+                </div>
+
+                <button class="menu-item" data-target="vista-alumnos">
+                    <ion-icon name="book"></ion-icon> <span class="txt">Alumnos</span>
+                </button>
+            </nav>
+        </aside>
+
+        
+        <div class="contenedor-principal">
+
+            
+            <header class="navbar">
+                <button id="btn-hamburguesa" class="btn-hamburguesa">
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+
+                <div class="navbar-derecha">
+                    <div class="usuario-menu" id="usuario-menu">
+                        <button class="usuario-btn" id="usuario-btn">
+                            <span class="avatar" id="usuario-avatar">U</span>
+                            <span class="usuario-nombre" id="usuario-nombre">Usuario</span>
+                            <ion-icon name="chevron-down"></ion-icon>
+                        </button>
+                        <div class="usuario-dropdown" id="usuario-dropdown">
+                            <p class="usuario-correo" id="usuario-correo">correo@ejemplo.com</p>
+                            <hr>
+                            <button id="btn-salir"><ion-icon name="log-out"></ion-icon> Salir del sistema</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            
+            <main class="vista activa" id="vista-inicio">
+                <h1>Bienvenido, <span id="saludo-nombre">Usuario</span> 👋</h1>
+                <p class="subtitulo">Este es el panel principal del sistema. Usa el menú lateral para navegar.</p>
+
+                <div class="tarjetas">
+                    <div class="tarjeta">
+                        <ion-icon name="people"></ion-icon>
+                        <h3>Usuarios</h3>
+                        <p>Captura nuevos usuarios del sistema desde el menú "Usuarios &gt; Captura".</p>
+                    </div>
+                    <div class="tarjeta">
+                        <ion-icon name="book"></ion-icon>
+                        <h3>Alumnos</h3>
+                        <p>Registra alumnos con su número de control y consulta si son mayores de edad.</p>
+                    </div>
+                </div>
+            </main>
+
+            
+            <main class="vista" id="vista-captura">
+                <h1><ion-icon name="person-add"></ion-icon> Captura de usuario</h1>
+                <p class="subtitulo">Registra un nuevo usuario del sistema. Los campos se validan con <code>utileria.js</code>.</p>
+
+                <form id="form-captura-usuario" class="formulario-tarjeta">
+                    <div class="campo">
+                        <label for="captura-usuario">Nombre de usuario</label>
+                        <input type="text" id="captura-usuario" placeholder="Ej. jperez">
+                    </div>
+                    <div class="campo">
+                        <label for="captura-correo">Correo electrónico</label>
+                        <input type="email" id="captura-correo" placeholder="Ej. jperez@correo.com">
+                    </div>
+                    <div class="campo">
+                        <label for="captura-pass">Contraseña</label>
+                        <input type="password" id="captura-pass" placeholder="Mín. 6 caracteres, mayúscula, número y símbolo">
+                    </div>
+                    <button type="submit" class="btn-primario">Guardar usuario</button>
+                </form>
+
+                <div class="tabla-wrapper">
+                    <h3>Usuarios capturados</h3>
+                    <table class="tabla" id="tabla-usuarios">
+                        <thead>
+                            <tr><th>Usuario</th><th>Correo</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </main>
+
+            
+            <main class="vista" id="vista-alumnos">
+                <h1><ion-icon name="book"></ion-icon> Registro de alumnos</h1>
+                <p class="subtitulo">El número de control debe tener exactamente 6 dígitos. Al registrar, se mostrará un modal indicando si el alumno es mayor de edad.</p>
+
+                <form id="form-alumno" class="formulario-tarjeta">
+                    <div class="campo">
+                        <label for="alumno-nombre">Nombre completo</label>
+                        <input type="text" id="alumno-nombre" placeholder="Ej. Ana López">
+                    </div>
+                    <div class="campo">
+                        <label for="alumno-control">Número de control</label>
+                        <input type="text" id="alumno-control" maxlength="6" placeholder="Ej. 123456">
+                    </div>
+                    <div class="campo">
+                        <label for="alumno-edad">Edad</label>
+                        <input type="number" id="alumno-edad" min="0" max="120" placeholder="Ej. 20">
+                    </div>
+                    <button type="submit" class="btn-primario">Registrar alumno</button>
+                </form>
+
+                <div class="tabla-wrapper">
+                    <h3>Alumnos registrados</h3>
+                    <table class="tabla" id="tabla-alumnos">
+                        <thead>
+                            <tr><th>Nombre</th><th>No. Control</th><th>Edad</th><th>Estatus</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    
+    <div class="modal-overlay" id="modal-edad">
+        <div class="modal-caja">
+            <span class="modal-cerrar" id="modal-cerrar"><ion-icon name="close"></ion-icon></span>
+            <ion-icon id="modal-icono" name="checkmark-circle"></ion-icon>
+            <h2 id="modal-titulo">Resultado</h2>
+            <p id="modal-texto">Mensaje</p>
+            <button class="btn-primario" id="modal-aceptar">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="js/utileria.js"></script>
+    <script src="js/index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
