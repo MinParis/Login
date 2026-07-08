@@ -175,13 +175,7 @@ o registrar un usuario nuevo desde la propia pantalla de login.
 ## 5. Enlaces de entrega
 
 - 🔗 **Repositorio:** _pega aquí el link del repositorio público de GitHub_
-- 🌐 **GitHub Pages (demo en vivo):** _pega aquí el link de GitHub Pages_
-
-### Cómo activar GitHub Pages
-1. En el repositorio, ir a **Settings → Pages**.
-2. En **Source**, seleccionar la rama `main` y la carpeta `/root`.
-3. Guardar y esperar a que se publique. La URL del login quedaría como:
-   `https://<usuario>.github.io/<repositorio>/login.html`
+- 🌐 **GitHub Pages (demo en vivo):** https://minparis.github.io/Login/
 
 ---
 
