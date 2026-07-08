@@ -174,7 +174,7 @@ o registrar un usuario nuevo desde la propia pantalla de login.
 
 ## 5. Enlaces de entrega
 
-- 🔗 **Repositorio:** _pega aquí el link del repositorio público de GitHub_
+- 🔗 **Repositorio:** https://github.com/MinParis/Login.git
 - 🌐 **GitHub Pages (demo en vivo):** https://minparis.github.io/Login/
 
 ---
